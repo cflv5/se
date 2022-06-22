@@ -10,3 +10,6 @@
 [submodule "sesign"]
 	path = sesign
 	url = git@github.com:cflv5/sesign.git
+[submodule "seapp"]
+	path = seapp
+	url = git@github.com:cflv5/seapp.git
