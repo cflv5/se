@@ -1,0 +1,52 @@
+version: "3.1"
+services:
+  db:
+    build: db/
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgrespw
+      - POSTGRES_MULTIPLE_DATABASES=users,postgres:files,postgres:sign,postgres
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+  user-service:
+    build: seuser/
+    links:
+      - db:db
+    environment:
+      SE_API_ACCESS_TOKEN: SE_API_ACCESS_TOKEN
+    ports:
+      - 8080:8080
+  file-service:
+    build: sefile/
+    links:
+      - db:db
+      - user-service:user-service
+    environment:
+      SE_API_ACCESS_TOKEN: SE_API_ACCESS_TOKEN
+    ports:
+      - 8081:8081
+  sign-service:
+    build: sesign/
+    links:
+      - db:db
+      - user-service:user-service
+      - file-service:file-service
+    environment:
+      - SE_API_ACCESS_TOKEN=SE_API_ACCESS_TOKEN
+    ports:
+      - 8082:8082
+  se-app:
+    build: seapp/
+    ports:
+      - 8083:8083
+    environment:
+      - VUE_APP_USER_SERVICE_URL=http://localhost:8080/v1/api/
+      - VUE_APP_SIGN_SERVICE_URL=http://localhost:8082/v1/api/
+    links:
+      - file-service:file-service
+      - user-service:user-service
+      - sign-service:sign-service
+volumes:
+  pg-data:
