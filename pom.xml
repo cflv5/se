@@ -6,4 +6,11 @@
     <artifactId>se</artifactId>
     <version>1.0.0</version>
     <name>se</name>
+
+    <modules>
+        <module>sebase</module>
+        <module>seuser</module>
+        <module>sefile</module>
+        <module>sesign</module>
+    </modules>
 </project>

@@ -1,0 +1,12 @@
+[submodule "sebase"]
+	path = sebase
+	url = git@github.com:cflv5/sebase.git
+[submodule "seuser"]
+	path = seuser
+	url = git@github.com:cflv5/seuser.git
+[submodule "sefile"]
+	path = sefile
+	url = git@github.com:cflv5/sefile.git
+[submodule "sesign"]
+	path = sesign
+	url = git@github.com:cflv5/sesign.git
