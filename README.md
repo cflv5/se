@@ -8,3 +8,6 @@ For Unix system:
 `docker-compose up --build`  
   
 Then app is at: http://localhost:8083/
+
+Go to the address http://localhost:8083/register to create account.
+Then http://localhost:8083/login to login to the app.
