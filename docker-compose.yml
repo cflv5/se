@@ -35,15 +35,13 @@ services:
       - file-service:file-service
     environment:
       - SE_API_ACCESS_TOKEN=SE_API_ACCESS_TOKEN
+      - SE_KEYSTORE_PASS=${SE_KEYSTORE_PASS}
     ports:
       - 8082:8082
   se-app:
     build: seapp/
     ports:
       - 8083:8083
-    environment:
-      - VUE_APP_USER_SERVICE_URL=http://localhost:8080/v1/api/
-      - VUE_APP_SIGN_SERVICE_URL=http://localhost:8082/v1/api/
     links:
       - file-service:file-service
       - user-service:user-service
