@@ -1,3 +1,7 @@
+# Update Submodules
+To update submodules after clone run:  
+`git submodule update --init`
+
 # To Run
 First, build project with maven  
 `mvn clean install -X -U`  
