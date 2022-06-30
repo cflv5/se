@@ -15,3 +15,6 @@ Then app is at: http://localhost:8083/
 
 Go to the address http://localhost:8083/register to create account.
 Then http://localhost:8083/login to login to the app.
+
+# Demo
+Deployed version can be accessed at: [Pistis](https://130.61.49.38:8083/)
